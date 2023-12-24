@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For my love, Lance</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      background-color: pink;
+      margin: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      position: relative;
+    }
+    #gift {
+      cursor: pointer;
+      color: #e44d26;
+      font-size: 64px;
+      position: absolute;
+    }
+    #openMeSign {
+      font-size: 18px;
+      color: #e44d26;
+      position: absolute;
+    }
+    #message {
+      display: none;
+    }
+  </style>
+  <script>
+    let clickCount = 0;
+
+    function revealMessage() {
+      clickCount++;
+
+      if (clickCount === 10) {
+        document.getElementById('message').style.display = 'block';
+        document.getElementById('gift').style.display = 'none';
+        document.getElementById('openMeSign').style.display = 'none';
+      } else {
+        const gift = document.getElementById('gift');
+        const maxX = window.innerWidth - gift.clientWidth;
+        const maxY = window.innerHeight - gift.clientHeight;
+        const randomX = Math.floor(Math.random() * maxX);
+        const randomY = Math.floor(Math.random() * maxY);
+
+        gift.style.left = randomX + 'px';
+        gift.style.top = randomY + 'px';
+
+        const openMeSign = document.getElementById('openMeSign');
+        const signX = window.innerWidth / 2 - openMeSign.clientWidth / 2;
+        const signY = window.innerHeight / 2 - openMeSign.clientHeight / 2;
+
+        openMeSign.style.left = signX + 'px';
+        openMeSign.style.top = signY + 'px';
+
+        document.getElementById('openMeSign').style.display = 'block';
+      }
+    }
+  </script>
+</head>
+<body>
+  <div>
+    <p id="gift" onclick="revealMessage()">🎁</p>
+    <p id="openMeSign">Open Me</p>
+  </div>
+  <div id="message">
+    <h1>Hello! my pogi love,</h1>
+    <p>In the warmth of our hearts and the glow of holiday lights, I find myself thinking of you more than ever. Christmas is a time of joy, and you are the source of my greatest joy.</p>
+    <p>Your love is the most beautiful gift I've ever received. Like the ornaments on a tree, you add color and sparkle to my life. I cherish every moment we've shared and look forward to many more.</p>
+    <p>Wishing you a magical Christmas filled with warmth and happiness. May our love continue to grow, just like the spirit of this festive season.</p>
+    <p>Merry Christmas, my love!</p>
+    <p>Your Love, Krae.</p>
+  </div>
+</body>
+</html>
